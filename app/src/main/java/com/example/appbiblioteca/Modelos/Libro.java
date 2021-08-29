@@ -2,7 +2,9 @@ package com.example.appbiblioteca.Modelos;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.appbiblioteca.MainActivity;
 import com.example.appbiblioteca.R;
+import com.example.appbiblioteca.formulario_libro;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
@@ -37,10 +40,10 @@ public class Libro {
 
     Context contexto;
     JSONObject unaLibro;
-    String base64Image;
-    byte[] decodedString;
     Bitmap decodedByte;
     ImagenBitmap decoder;
+    Intent changeActivity;
+    Bundle b;
 
     public Libro(Context contexto, JSONObject unaLibro) {
         this.contexto = contexto;
@@ -53,7 +56,8 @@ public class Libro {
             this.txtNombreLibro.setText(unaLibro.getString("libro"));
             this.txtDescripcion.setText(unaLibro.getString("descripcion"));
             decoder = new ImagenBitmap(unaLibro.getString("foto"));
-            this.imgPortadaLibro.setImageBitmap(decoder.getImagen());
+            decodedByte = decoder.getImagen();
+            this.imgPortadaLibro.setImageBitmap(decodedByte);
             if(MainActivity.getUsuario().getString("rol").equals("US")){
                 this.btnEditar.setVisibility(android.view.View.INVISIBLE);
             }
@@ -64,6 +68,18 @@ public class Libro {
 
     @Click(R.id.btnEditar)
     public void editar_libro(){
-
+        try {
+            changeActivity = new Intent(this.contexto, formulario_libro.class);
+            changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            b = new Bundle();
+            b.putString("accion", "Editar");
+            b.putString("libro", unaLibro.getString("libro"));
+            b.putString("descripcion", unaLibro.getString("descripcion"));
+            b.putString("foto", unaLibro.getString("foto"));
+            changeActivity.putExtras(b);
+            contexto.startActivity(changeActivity);
+        } catch (JSONException e) {
+            Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }
