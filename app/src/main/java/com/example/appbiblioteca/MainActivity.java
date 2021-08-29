@@ -35,8 +35,10 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
     public void login(View view) {
         try {
             JSONObject json_mensaje = new JSONObject();
-            json_mensaje.put("usuario", txtUsuario.getText());
-            json_mensaje.put("clave", txtClave.getText());
+            json_mensaje.put("usuario", "calmeidad");
+            json_mensaje.put("clave", "123456");
+            //json_mensaje.put("usuario", txtUsuario.getText());
+            //json_mensaje.put("clave", txtClave.getText());
             ServicioTask servicioTask = new ServicioTask(this, "POST","https://bibliotecajacoh.herokuapp.com/api-usuario/login/", json_mensaje.toString(), this);
             txtUsuario.setText("");
             txtClave.setText("");

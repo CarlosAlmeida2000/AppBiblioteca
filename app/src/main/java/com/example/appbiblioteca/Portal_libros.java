@@ -55,11 +55,10 @@ public class Portal_libros extends AppCompatActivity implements Asynchtask {
 
     public void registrar(View view){
         changeActivity = new Intent(getApplicationContext(), formulario_libro.class);
-        //changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         b = new Bundle();
-        b.putString("accion", "registrar");
+        b.putString("accion", "Registrar");
         changeActivity.putExtras(b);
-        getBaseContext().startActivity(changeActivity);
+        startActivity(changeActivity);
     }
     @Override
     public void processFinish(String result) throws JSONException {

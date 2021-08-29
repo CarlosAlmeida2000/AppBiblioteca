@@ -16,7 +16,7 @@
         android:layout_width="376dp"
         android:layout_height="24dp"
         android:layout_marginTop="8dp"
-        android:text="Formulario de libro"
+        android:text="Formulario"
         android:textAlignment="center"
         android:textColor="@color/color_letra"
         android:textSize="45px"
@@ -40,11 +40,20 @@
         app:layout_constraintTop_toBottomOf="@+id/lblFormulario">
 
         <ImageView
-            android:id="@+id/imgPerfil"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="112dp"
+            android:id="@+id/imgPortadaL"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:layout_marginStart="45dp"
             android:layout_marginBottom="15dp" />
+
+        <Button
+            android:id="@+id/btnSubirFoto"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="-70dp"
+            android:onClick="selecionar_img"
+            android:text="Subir foto" />
 
         <TextView
             android:id="@+id/textView"
