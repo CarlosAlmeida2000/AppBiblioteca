@@ -73,6 +73,7 @@ public class Libro {
             changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             b = new Bundle();
             b.putString("accion", "Editar");
+            b.putString("libro_id", unaLibro.getString("libro_id"));
             b.putString("libro", unaLibro.getString("libro"));
             b.putString("descripcion", unaLibro.getString("descripcion"));
             b.putString("foto", unaLibro.getString("foto"));

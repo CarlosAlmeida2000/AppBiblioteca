@@ -34,6 +34,8 @@ public class formulario_libro extends AppCompatActivity implements Asynchtask {
     private TextView txtNombre;
     private TextView txtDescripcion;
     private ImagenBitmap decoder;
+    private Bundle b;
+    private Intent changeActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class formulario_libro extends AppCompatActivity implements Asynchtask {
         txtNombre = (TextView)findViewById(R.id.txtNombreLib);
         txtDescripcion = (TextView)findViewById(R.id.txtDescripcionLi);
         imgPortadaL = (ImageView) findViewById(R.id.imgPortadaL);
-        Bundle b = this.getIntent().getExtras();
+        b = this.getIntent().getExtras();
         this.accion = b.getString("accion");
         lblFormulario.setText(accion + " libro");
         try {
@@ -85,15 +87,18 @@ public class formulario_libro extends AppCompatActivity implements Asynchtask {
                 json_mensaje.put("nombre", txtNombre.getText());
                 json_mensaje.put("descripcion", txtDescripcion.getText());
                 decoder = new ImagenBitmap(this.imgPortadaL);
-                json_mensaje.put("foto", decoder.getBase64());
+                String ba64 = decoder.getBase64();
+                json_mensaje.put("foto", "data:image/png;base64," + decoder.getBase64());
                 ServicioTask servicioTask = new ServicioTask(this, "POST","https://bibliotecajacoh.herokuapp.com/api-libro/libro/", json_mensaje.toString(), this);
                 servicioTask.execute();
             }else{
                 JSONObject json_mensaje = new JSONObject();
+                json_mensaje.put("libro_id", b.getString("libro_id"));
                 json_mensaje.put("nombre", txtNombre.getText());
                 json_mensaje.put("descripcion", txtDescripcion.getText());
                 decoder = new ImagenBitmap(this.imgPortadaL);
-                json_mensaje.put("foto", decoder.getBase64());
+                String ba64 = decoder.getBase64();
+                json_mensaje.put("foto", "data:image/png;base64," + decoder.getBase64());
                 ServicioTask servicioTask = new ServicioTask(this, "PUT","https://bibliotecajacoh.herokuapp.com/api-libro/libro/", json_mensaje.toString(), this);
                 servicioTask.execute();
             }
@@ -108,9 +113,14 @@ public class formulario_libro extends AppCompatActivity implements Asynchtask {
             if(json_response.getBoolean("confirmacion")){
                 if(this.accion.equals("Editar")){
                     Toast.makeText(this, "Libro modificado.", Toast.LENGTH_LONG).show();
-
+                    changeActivity = new Intent(getApplicationContext(), Portal_libros.class);
+                    changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(changeActivity);
                 }else{
                     Toast.makeText(this, "Libro registrado.", Toast.LENGTH_LONG).show();
+                    changeActivity = new Intent(getApplicationContext(), Portal_libros.class);
+                    changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(changeActivity);
                 }
             }else{
                 Toast.makeText(this, "Sucedió un error, por favor intente nuevamente.", Toast.LENGTH_LONG).show();
