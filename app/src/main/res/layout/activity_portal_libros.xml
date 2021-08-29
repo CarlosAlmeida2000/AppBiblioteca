@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gris"
+    android:orientation="vertical"
     tools:context=".Portal_libros">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/body_libros"
+        android:layout_width="388dp"
+        android:layout_height="612dp"
+        android:clickable="false"
+        android:clipChildren="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLibros">
+
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/phv_libros"
+            android:layout_width="match_parent"
+            android:layout_height="612dp"
+            android:scrollbars="vertical" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/lblLibros"
+        android:layout_width="376dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Historial"
+        android:textAlignment="center"
+        android:textColor="@color/color_letra"
+        android:textSize="45px"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

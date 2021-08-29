@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
     private TextView txtUsuario;
     private TextView txtClave;
     private ProgressDialog progDailog;
-    private  JSONObject usuario;
+    private static JSONObject usuario;
     private JSONArray json_array;
     private Intent newActivity;
     @Override
@@ -52,6 +52,15 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+
+    public static JSONObject getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(JSONObject usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public void processFinish(String result) throws JSONException {
         try {
@@ -60,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
             if(json_response.has("usuario")){
                 newActivity = new Intent(this, Portal_libros.class);
                 json_array = json_response.getJSONArray("usuario");
-                usuario = json_array.getJSONObject(0);
-                Toast.makeText(this, "Bienvenido (a) " + usuario.get("nombre").toString(), Toast.LENGTH_LONG).show();
+                this.setUsuario(json_array.getJSONObject(0));
+                Toast.makeText(this, "Bienvenido (a) " + getUsuario().get("nombre").toString(), Toast.LENGTH_LONG).show();
                 startActivity(newActivity);
             }else{
                 Toast.makeText(this, json_response.get("mensaje").toString(), Toast.LENGTH_LONG).show();

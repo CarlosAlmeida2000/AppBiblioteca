@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgLogin"
         android:layout_width="306dp"
         android:layout_height="275dp"
         android:layout_marginTop="16dp"
