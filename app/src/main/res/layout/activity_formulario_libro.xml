@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris"
+    android:orientation="vertical"
+    tools:context=".formulario_libro">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/lblFormulario"
+        android:layout_width="376dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Formulario de libro"
+        android:textAlignment="center"
+        android:textColor="@color/color_letra"
+        android:textSize="45px"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/contenedor_encabezado"
+        android:layout_width="352dp"
+        android:layout_height="555dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+
+        android:layout_marginEnd="22dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblFormulario">
+
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Nombre"
+            android:textColor="@color/azul"
+            android:textSize="42px" />
+
+        <EditText
+            android:id="@+id/txtNombreLib"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="Ingrese el nombre del libro"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lblDescripcionLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Descripción"
+            android:textColor="@color/azul"
+            android:textSize="42px" />
+
+        <EditText
+            android:id="@+id/txtDescripcionLi"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="Ingrese una descripción del libro"
+            android:inputType="textPersonName|textPassword" />
+
+        <LinearLayout
+            android:id="@+id/contenedor_button"
+            android:layout_width="142dp"
+            android:layout_height="47dp"
+            android:background="@drawable/btn_save"
+            android:orientation="vertical"
+            android:layout_marginStart="108dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtClave"
+            app:layout_constraintVertical_bias="0.483">
+
+            <Button
+                android:id="@+id/btnGuardarPerfil"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                android:layout_width="142dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="-7dp"
+                android:layout_marginTop="-9dp"
+                android:backgroundTint="@color/teal_200"
+                android:text="Guardar"
+                android:drawableLeft="@drawable/ic_save"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

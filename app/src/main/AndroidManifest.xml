@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBiblioteca"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Portal_libros"></activity>
+        <activity android:name=".formulario_libro"></activity>
+        <activity android:name=".Portal_libros" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

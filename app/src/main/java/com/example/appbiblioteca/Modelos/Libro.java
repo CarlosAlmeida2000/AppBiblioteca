@@ -54,7 +54,7 @@ public class Libro {
             this.txtDescripcion.setText(unaLibro.getString("descripcion"));
             decoder = new ImagenBitmap(unaLibro.getString("foto"));
             this.imgPortadaLibro.setImageBitmap(decoder.getImagen());
-            if(MainActivity.getUsuario().getString("rol") == "US"){
+            if(MainActivity.getUsuario().getString("rol").equals("US")){
                 this.btnEditar.setVisibility(android.view.View.INVISIBLE);
             }
         }catch (JSONException ex){

@@ -83,6 +83,7 @@
             android:layout_marginTop="-9dp"
             android:backgroundTint="@color/teal_200"
             android:drawableLeft="@drawable/ic_ingresar"
+            android:onClick="login"
             android:text="Ingresar"
             android:textAlignment="center"
             android:textColor="@color/white" />

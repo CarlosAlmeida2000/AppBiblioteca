@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appbiblioteca.WebServices.Asynchtask;
 import com.example.appbiblioteca.WebServices.ServicioTask;
-import com.mindorks.placeholderview.annotations.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
             JSONObject json_mensaje = new JSONObject();
             json_mensaje.put("usuario", txtUsuario.getText());
             json_mensaje.put("clave", txtClave.getText());
-            ServicioTask servicioTask = new ServicioTask(this, "POST","https://wssecurity.herokuapp.com/api-usuario/login/", json_mensaje.toString(), this);
+            ServicioTask servicioTask = new ServicioTask(this, "POST","https://bibliotecajacoh.herokuapp.com/api-usuario/login/", json_mensaje.toString(), this);
             txtUsuario.setText("");
             txtClave.setText("");
             servicioTask.execute();
@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
                 newActivity = new Intent(this, Portal_libros.class);
                 json_array = json_response.getJSONArray("usuario");
                 this.setUsuario(json_array.getJSONObject(0));
-                Toast.makeText(this, "Bienvenido (a) " + getUsuario().get("nombre").toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Bienvenido (a) " + getUsuario().getString("nombre"), Toast.LENGTH_LONG).show();
                 startActivity(newActivity);
             }else{
-                Toast.makeText(this, json_response.get("mensaje").toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, json_response.getString("mensaje"), Toast.LENGTH_LONG).show();
             }
         }catch (Exception ex){
             progDailog.dismiss();

@@ -14,19 +14,19 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/body_libros"
         android:layout_width="388dp"
-        android:layout_height="612dp"
+        android:layout_height="570dp"
         android:clickable="false"
         android:clipChildren="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblLibros">
+        app:layout_constraintTop_toBottomOf="@+id/btnRefrescar">
 
         <com.mindorks.placeholderview.PlaceHolderView
             android:id="@+id/phv_libros"
             android:layout_width="match_parent"
-            android:layout_height="612dp"
+            android:layout_height="570dp"
             android:scrollbars="vertical" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -36,13 +36,51 @@
         android:layout_width="376dp"
         android:layout_height="24dp"
         android:layout_marginTop="20dp"
-        android:text="Historial"
+        android:text="Lista de libros"
         android:textAlignment="center"
-        android:textColor="@color/color_letra"
-        android:textSize="45px"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:text="Administrador - Carlos Almeida"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLibros" />
+
+    <Button
+        android:id="@+id/btnRefrescar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/celeste_fuerte"
+        android:onClick="getLibros"
+        android:text="Refrescar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLibros" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnRegistrarLib"
+        android:layout_width="58dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_registrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
