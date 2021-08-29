@@ -44,7 +44,8 @@
             android:layout_width="210dp"
             android:layout_height="210dp"
             android:layout_marginStart="45dp"
-            android:layout_marginBottom="15dp" />
+            android:layout_marginBottom="15dp"
+            app:srcCompat="@drawable/fondologin_adobespark"/>
 
         <Button
             android:id="@+id/btnSubirFoto"
@@ -91,7 +92,7 @@
             android:background="@color/white"
             android:ems="10"
             android:hint="Ingrese una descripción del libro"
-            android:inputType="textPersonName|textPassword" />
+            android:inputType="textPersonName" />
 
         <LinearLayout
             android:id="@+id/contenedor_button"
@@ -114,8 +115,9 @@
                 android:layout_marginStart="-7dp"
                 android:layout_marginTop="-9dp"
                 android:backgroundTint="@color/teal_200"
-                android:text="Guardar"
                 android:drawableLeft="@drawable/ic_save"
+                android:onClick="guardar"
+                android:text="Guardar"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
         </LinearLayout>
